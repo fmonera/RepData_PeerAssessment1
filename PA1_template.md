@@ -194,14 +194,9 @@ Now we convert the daytype field into a factor and paint the graphic.
 dd_final$daytype <- factor(dd_final$daytype)
 agg <- aggregate(dd_final$steps, list(interval = dd_final$interval, daytype=dd_final$daytype), mean)
 names(agg) <- c("interval", "daytype", "steps")
-par(mfrow=c(2,1))
 
 library(ggplot2)
 ggplot(agg, aes(interval, steps)) + geom_line(color = "Red", lwd = 2) + facet_wrap(~daytype, ncol=1)
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)\
-
-```r
-#plot($dd_final$interval, summary, type="l", xlab="Time", ylab="Steps", main="Weekday")
-```
